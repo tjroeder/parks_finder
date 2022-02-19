@@ -1,0 +1,20 @@
+<% if @state.present? %>
+  <%= content_tag :h1, "National Parks in #{@state}" %>
+  <ul>
+    <% @parks.each do |park| %>
+      <%= content_tag :h2, "Park Name: #{park.full_name}" %>
+        <%= content_tag :li, "Description: #{park.description}" %>
+        <%= content_tag :li, "Directions Info: #{park.directions_info}" %>
+        <%= content_tag :li, "Standard Hours of Operation:" %>
+        <ul>
+          <%= content_tag :li, "Monday: #{park.std_hours[:monday]}" %>
+          <%= content_tag :li, "Tuesday: #{park.std_hours[:tuesday]}" %>
+          <%= content_tag :li, "Wednesday: #{park.std_hours[:wednesday]}" %>
+          <%= content_tag :li, "Thursday: #{park.std_hours[:thursday]}" %>
+          <%= content_tag :li, "Friday: #{park.std_hours[:friday]}" %>
+          <%= content_tag :li, "Saturday: #{park.std_hours[:saturday]}" %>
+          <%= content_tag :li, "Sunday: #{park.std_hours[:sunday]}" %>
+        </ul>
+    <% end %>
+  </ul>
+<% end %>
